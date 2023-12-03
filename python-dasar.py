@@ -1,7 +1,30 @@
 import os
 import time
 
-def menu_1():
+
+def menu_pertemuan_1():
+    while True:
+        os.system('cls' if os.name == 'nt' else 'clear')  
+        print("===========================")
+        print(" MENU LATIHAN PERTEMUAN 1  ")
+        print("===========================")
+        print("1. Membuat Biodata")
+        print("2. Pembelian Tiket Pesawat")
+        print("0. kembali ke menu utama")
+        pilihan_pertemuan_1 = input("Masukkan Pilihan (0-2) : ")
+
+        if pilihan_pertemuan_1 == "1":
+            submenu_latihan_1_pertemuan_1()
+        elif pilihan_pertemuan_1 == "2":
+            submenu_latihan_2_pertemuan_1(jumlah_transaksi) 
+        elif pilihan_pertemuan_1 == "0":
+            break
+        else:
+            print("Pilihan Menu tersebut tidak tersedia. Silakan memilih menu yang tersedia angka 0-2.")
+
+
+
+def submenu_latihan_1_pertemuan_1():
     while True:
         os.system('cls' if os.name == 'nt' else 'clear')  
         print("==========================")
@@ -43,13 +66,95 @@ def menu_1():
         else:
             os.system('cls' if os.name == 'nt' else 'clear')
             continue  
-
-def menu_2():
+        
+        
+def submenu_latihan_2_pertemuan_1(jumlah):
     while True:
         os.system('cls' if os.name == 'nt' else 'clear')  
         print("==========================")
-        print(" MENU LATIHAN MATEMATIKA  ")
+        print("  PEMBELIAN TIKET PESAWAT  ")
         print("==========================")
+
+        jumlah += 1
+
+        no_transaksi = f"{jumlah:04d}"
+
+       
+        nama_lengkap = input("Nama Lengkap: ")
+        no_kontak = input("Nomor Kontak: ")
+        alamat_lengkap = input("Alamat Lengkap: ")
+
+        
+        os.system('cls' if os.name == 'nt' else 'clear')
+        print("======================================")
+        print("  SILAHKAN MEMILIH KELAS PENERBANGAN  ")
+        print("======================================")
+        print("1. Eksklusif")
+        print("2. Ekonomi")
+        print("======================================")
+        pilihan_kelas = input("Masukkan Pilihan Kelas (1-2): ")
+
+        while pilihan_kelas not in ('1', '2'):
+            print("Pilihan tidak valid. Silakan masukkan '1' atau '2'.")
+            pilihan_kelas = input("Masukkan Pilihan Kelas (1-2): ")
+
+        if pilihan_kelas == '1':
+            kelas_penerbangan = "Eksklusif"
+            harga_tiket = 500000  
+        else:
+            kelas_penerbangan = "Ekonomi"
+            harga_tiket = 250000  
+
+        os.system('cls' if os.name == 'nt' else 'clear')
+        
+        tanggal = input("Masukkan Tanggal Pemberangkatan : ")
+        bulan = input("Masukkan Bulan Pemberangkatan : ")
+        tahun = input("Masukkan Tahun Pemberangkatan : ")
+        tgl_pemberangkatan = f"{tanggal}/{bulan}/{tahun}"
+
+        jumlah_beli = int(input("Jumlah Tiket yang Dibeli: "))
+        format_harga_tiket = "{:,.0f}".format(harga_tiket)
+        
+        total_harga = harga_tiket * jumlah_beli
+        format_total_harga = "{:,.0f}".format(total_harga)
+        
+        os.system('cls' if os.name == 'nt' else 'clear')
+        print("========================================")
+        print("  INVOICE PEMBELIAN TIKET PESAWAT ANDA  ")
+        print("========================================")
+        print("Nomor Transaksi:", no_transaksi)
+        print("Nama Lengkap:", nama_lengkap)
+        print("Nomor Kontak:", no_kontak)
+        print("Alamat Lengkap:", alamat_lengkap)
+        print("Tanggal Pemberangkatan:", tgl_pemberangkatan)
+        print("Kelas Penerbangan:", kelas_penerbangan)
+        print("Harga Tiket: Rp.", format_harga_tiket)
+        print("Jumlah Tiket:", jumlah_beli)
+        print("Total Harga: Rp.", format_total_harga)
+        print("========================================")
+
+        ulang = input("Apakah Anda ingin melakukan pembelian lagi? (y/n): ")
+        while ulang.lower() not in ('y', 'n'):
+            print("Pilihan tidak valid. Silakan masukkan 'y' atau 'n'.")
+            ulang = input("Apakah Anda ingin melakukan pembelian lagi? (y/n): ")
+
+        if ulang.lower() == 'y':
+            continue
+        elif ulang.lower() == 'n':
+            os.system('cls' if os.name == 'nt' else 'clear')
+            break
+
+jumlah_transaksi = 0
+
+
+
+
+def menu_pertemuan_2():
+    while True:
+        os.system('cls' if os.name == 'nt' else 'clear')  
+        print("===========================")
+        print(" MENU LATIHAN PERTEMUAN 2  ")
+        print("===========================")
         print("1. Menghitung luas dan keliling")
         print("2. Menghitung Bangun Ruang")
         print("0. kembali ke menu utama")
@@ -567,7 +672,7 @@ def hitung_bangun_ruang_kubus():
             os.system('cls' if os.name == 'nt' else 'clear')
             break
 
-def hitung_banung_ruang_balok():
+def hitung_bangun_ruang_balok():
     while True:
         os.system('cls' if os.name == 'nt' else 'clear')
         print("=================================")
@@ -797,11 +902,11 @@ def hitung_bangun_ruang_bola():
 
         jari_jari_bola = float(jari_jari_bola_input)
 
-        # Rumus volume dan luas permukaan bola
+       
         volume_bola = (4/3) * 3.14 * jari_jari_bola**3
         luas_permukaan_bola = 4 * 3.14 * jari_jari_bola**2
 
-        # Hasil Output
+      
         print("=====================================")
         print("     HASIL BANGUN RUANG BOLA         ")
         print("=====================================")
@@ -827,15 +932,19 @@ while True:
     print("==========================")
     print("  Silahkan Memilih Menu   ")
     print("==========================")
-    print("1. Membuat Biodata")
-    print("2. Latihan Matematika")
+    print("1. [TASK] Pertemuan 1")
+    print("2. [TASK] Pertemuan 2")
+    print("3. [TASK] Pertemuan 3")
     print("0. Keluar")
-    pilihan = input("Masukan Pilihan (0-2) : ")
+    print("==========================")
+    pilihan = input("Masukan Pilihan (0-3) : ")
     
     if pilihan == "1":
-        menu_1()
+        menu_pertemuan_1()
     elif pilihan == "2":
-        menu_2()
+        menu_pertemuan_2()
+    elif pilihan == "3":
+        menu_pertemuan_3()
     elif pilihan == "0":
         os.system('cls' if os.name == 'nt' else 'clear')
         print("==========================")
